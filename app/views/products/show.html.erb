@@ -20,7 +20,7 @@
     <% @product.images.each do |image|%>
     <li>
       <%= link_to 'x', delete_image_product_path(@product, image), method: :delete, data: {confirm: 'Estás seguro?'}%>
-      <%= image_tag image.variant(resize: '200x200').processed %>
+      <%= image_tag image.variant(resize: '200x200', negate: true).processed %>
     </li>
     <% end %>
   </ul>
