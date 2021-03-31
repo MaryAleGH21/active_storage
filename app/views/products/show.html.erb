@@ -15,5 +15,16 @@
   <%= @product.stock %>
 </p>
 
+<% if @product.images.attached? %>
+  <ul> 
+    <% @product.images.each do |image|%>
+    <li>
+      <%= link_to 'x', delete_image_product_path(@product, image), method: :delete, data: {confirm: 'Estás seguro?'}%>
+      <%= image_tag image.variant(resize: '200x200').processed %>
+    </li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
