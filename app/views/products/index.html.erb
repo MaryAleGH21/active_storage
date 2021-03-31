@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Image</th>
       <th>Name</th>
       <th>Description</th>
       <th>Stock</th>
@@ -15,6 +16,11 @@
   <tbody>
     <% @products.each do |product| %>
       <tr>
+        <td>
+          <% product.images.each do |image|%>
+            <%= image_tag image.variant(resize: '20x20').processed %>
+          <% end %>
+        </td>
         <td><%= product.name %></td>
         <td><%= product.description %></td>
         <td><%= product.stock %></td>
